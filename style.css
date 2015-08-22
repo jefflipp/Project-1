@@ -1,0 +1,26 @@
+body {
+	text-align: center;
+}
+
+.aboveBoard {
+	align: center;
+
+}
+
+.mainboard {
+	width: 600px;
+    height: 600px;
+    margin: auto;
+}
+
+.card {
+	width: 97px;
+	height: 97px;
+	border: 1px solid black;
+	float: left;
+	;
+}
+
+button {
+	margin-bottom: 10px;
+	font-size: 30px;
