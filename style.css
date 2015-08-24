@@ -4,23 +4,59 @@ body {
 
 .aboveBoard {
 	align: center;
+	margin: 0 auto;
 
 }
 
 .mainboard {
-	width: 600px;
-    height: 600px;
-    margin: auto;
+	width: 650px;
+    height: 650px;
+    margin: 0 auto;
+
 }
 
-.card {
+/*.cardsClick {
 	width: 97px;
 	height: 97px;
 	border: 1px solid black;
 	float: left;
-	;
+	margin: 3px;
+	background: url("pictures/paul.jpg") center center no-repeat;
+	background-size: cover;
+}*/
+
+
+.cards {
+	width: 97px;
+	height: 97px;
+	border: 1px solid black;
+	float: left;
+	margin: 3px;
+	background: url(pictures/GA.png) center center no-repeat;
+	background-size: cover;
 }
 
+.cards img {
+	width: 97px;	
+	height: 97px;
+	margin: 3px;
+}
+
+/*img {
+	background-image: fill;
+}
+*/
 button {
 	margin-bottom: 10px;
 	font-size: 30px;
+}
+
+input {
+	margin-bottom: 15px;
+}
+
+
+/*.flip-mainboard {
+    -webkit-perspective: 1000;
+    -o-perspective: 1000;
+    perspective: 1000;*/

@@ -50,6 +50,7 @@ The game will compare the respective scores of the two Players and declare a win
 
 #### Other Considerations
 
+* Create a header with tabs, including the High Scores section, and maybe the pictures that I didn't use in the game (bloopers real).
 * Speed round elements
 * Flip a virtual coin to determine who goes first
 * animation on a win - maybe video of twerking (new page for celebration)  
