@@ -1,30 +1,54 @@
 var cards = document.querySelectorAll(".cards"); //grab all of the card
 var attempt = 0;//set an initial value of "turn"
-var peoplePictures = ["pictures/paul.jpg", "pictures/paul.jpg", "pictures/steve.jpg", "pictures/steve.jpg", "pictures/alex.jpg", "pictures/alex.jpg", "pictures/brian.jpg", "pictures/brian.jpg"];
-var tempArray = new Array(peoplePictures)[0];
-console.log(tempArray);
+var peoplePictures = ["pictures/paul.jpg", "pictures/paul.jpg", "pictures/steve.jpg", "pictures/steve.jpg", "pictures/alex.jpg", "pictures/alex.jpg", "pictures/brian.jpg", "pictures/brian.jpg", "pictures/greg.jpg", "pictures/greg.jpg", "pictures/leslie.jpg", "pictures/leslie.jpg", "pictures/kayla.jpg", "pictures/kayla.jpg"];
+var tempArray = peoplePictures.slice();
+//console.log(tempArray);
 var click = 0;
 var player = 1;
 
 
-console.log(cards);
+//console.log(cards);
 
-function showPicture(){
+function build (){
 	while (tempArray.length) {
-		var y = tempArray.splice(Math.random()*peoplePictures.length,1);
+		var y = tempArray.splice( Math.random()*peoplePictures.length, 1 );
 
-		console.log(cards[peoplePictures.length - tempArray.length]);
+		console.log(cards[ y ]);
 
-		cards[ peoplePictures.length - tempArray.length ].innerHTML += "<img src='" + y + "' />";
+		cards[ peoplePictures.length - (tempArray.length +1) ].innerHTML += "<img class='hidden' src='" + y + "' />";
 	}
+
 }
 
-document.querySelector('.cards').addEventListener('click', showPicture);
+function showPicture(){
+	console.log("hit");
+	this.classList.remove("hidden");
+}
+
+function reset(){
+	$(".cards").html("");
 
 
-// }
 
-//function showPicture(){
+}
+
+
+function newGame(){
+
+	reset();
+	build();
+
+}
+
+$("#newGame").on("click", newGame)
+
+$(".mainBoard").on('click', ".cards img", showPicture);
+
+
+// function showPicture(){
+
+
+
 // //show a picture
 // // 	click ++;
 // // 	if (click === 2) {

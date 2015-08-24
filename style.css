@@ -42,6 +42,10 @@ body {
 	margin: 3px;
 }
 
+.hidden{
+	opacity:0;
+}
+
 /*img {
 	background-image: fill;
 }
