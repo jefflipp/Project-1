@@ -1,9 +1,10 @@
 var cards = document.querySelectorAll(".cards"); //grab all of the card
-var attempt = 0;//set an initial value of "turn"
-var peoplePictures = ["pictures/paul.jpg", "pictures/paul.jpg", "pictures/steve.jpg", "pictures/steve.jpg", "pictures/alex.jpg", "pictures/alex.jpg", "pictures/brian.jpg", "pictures/brian.jpg", "pictures/greg.jpg", "pictures/greg.jpg", "pictures/leslie.jpg", "pictures/leslie.jpg", "pictures/kayla.jpg", "pictures/kayla.jpg"];
+var attempts = 0;//set an initial value of attempts
+var peoplePictures = ["pictures/paul.jpg", "pictures/paul.jpg", "pictures/steve.jpg", "pictures/steve.jpg", "pictures/alex.jpg", "pictures/alex.jpg", "pictures/brian.jpg", "pictures/brian.jpg", "pictures/greg.jpg", "pictures/greg.jpg", "pictures/leslie.jpg", "pictures/leslie.jpg", "pictures/kayla.jpg", "pictures/kayla.jpg", "pictures/julie.jpg", "pictures/julie.jpg", "pictures/blaise.jpg", "pictures/blaise.jpg", "pictures/eric.jpg", "pictures/eric.jpg", "pictures/noah.jpg", "pictures/noah.jpg", "pictures/kyle.jpg", "pictures/kyle.jpg", "pictures/percy.jpg", "pictures/percy.jpg", "pictures/adam.jpg", "pictures/adam.jpg", "pictures/john.jpg", "pictures/john.jpg", "pictures/andre.jpg", "pictures/andre.jpg", "pictures/jeff.jpg", "pictures/jeff.jpg", "pictures/taylor.jpg", "pictures/taylor.jpg"];
 var tempArray = peoplePictures.slice();
+var check = [];
 //console.log(tempArray);
-var click = 0;
+var clicks = 0;
 var player = 1;
 
 
@@ -23,7 +24,47 @@ function build (){
 function showPicture(){
 	console.log("hit");
 	this.classList.remove("hidden");
+	check.push(this);
+	console.log(this);
+	console.log(check);
+	clicks++;
+	console.log(clicks + " clicks");
+	if (clicks === 2) {
+		setTimeout(function(){checkMatch()},600)
+		
+	} else {
+		// showPicture();
+
+	}
+
 }
+function checkMatch(){
+
+	console.log("I'm checking a match");
+	if (check[0].src !== check[1].src){
+		console.log("there is NO match");
+		check[0].classList.add("hidden");
+		check[1].classList.add("hidden");
+		clicks = 0;
+		console.log(clicks + " clicks");
+		check = [];  
+	} else {
+		console.log("YES, there is a match");
+		check = [];
+		clicks = 0
+	}
+
+attempts++
+console.log(attempts + " total attmepts made");
+}
+
+// // show two pictures attched to the two clicks
+// // see if the two cards clicked on are equal to one another
+// // if match, keep the two pictures there; if not flip back over to GA; then allow two more clicks before checkMatch again
+// // call checkFInishBoard
+
+// }
+
 
 function reset(){
 	$(".cards").html("");
@@ -42,7 +83,7 @@ function newGame(){
 
 $("#newGame").on("click", newGame)
 
-$(".mainBoard").on('click', ".cards img", showPicture);
+$(".mainBoard").on('click', ".cards img", showPicture)
 
 
 // function showPicture(){
@@ -99,15 +140,6 @@ $(".mainBoard").on('click', ".cards img", showPicture);
 // // 3) randomPictures array assigned to 36 cards
 // //start clock
 
-
-// function checkMatch(){
-
-// // show two pictures attched to the two clicks
-// // see if the two cards clicked on are equal to one another
-// // if match, keep the two pictures there; if not flip back over to GA; then allow two more clicks before checkMatch again
-// // call checkFInishBoard
-
-// }
 
 // function checkFinishBoard(player){
 
