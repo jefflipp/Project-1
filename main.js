@@ -9,6 +9,7 @@ var matches = 0;
 var elapsedTime = 0;
 var timeRunning = 0;
 var TIMER = null;
+var score = [];
 
 
 
@@ -28,7 +29,7 @@ function resetTimer(){
 	elapsedTime = 0;
 	timeRunning = 0;
 	document.getElementById("startRound").innerHTML = "Start Round";
-	document.getElementById("timeDisplay").innerHTML = "00:00:00";
+	document.getElementById("timeDisplay").innerHTML = "00:00:0";
 }
 
 function startTimer(){
@@ -36,9 +37,9 @@ function startTimer(){
 	TIMER = setInterval(function(){
 		elapsedTime ++;
 		//console.log(elapsedTime);
-		console.log( document.getElementById("timeDisplay") );
+		// console.log( document.getElementById("timeDisplay") );
 		var minutes = Math.floor(elapsedTime/600);
-		var seconds = Math.floor(elapsedTime/10);
+		var seconds = Math.floor((elapsedTime-(minutes*600))/10);
 		var tenthsSeconds = elapsedTime % 10;
 
 		if (minutes < 10) {
@@ -47,12 +48,8 @@ function startTimer(){
 		if (seconds < 10) {
 			seconds = "0" + seconds;
 		}
-		if (tenthsSeconds < 10) {
-			tenthsSeconds = "0" + tenthsSeconds;
-		}
-
 		document.getElementById("timeDisplay").innerHTML = minutes + ":" + seconds + ":" + tenthsSeconds;
-		//startTimer();
+
 	}, 100);
 
 
@@ -123,7 +120,8 @@ function checkMatch(){
 	attempts++
 	console.log(attempts + " total attmepts made");
 
-	if (matches === 18) {
+	if (matches === 2) {
+		timeRunning = 1;
 		finishRound();
 	}
 
@@ -133,6 +131,9 @@ function checkMatch(){
 function finishRound(){
 
 	alert("Nice work, you're done!");
+	score.push(elapsedTime - (attempts *) 
+
+
 
 }
 
