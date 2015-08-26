@@ -3,7 +3,6 @@ body {
 }
 
 .aboveBoard {
-	align: center;
 	margin: 0 auto;
 
 }
@@ -15,32 +14,54 @@ body {
 
 }
 
-label#playerOne {
-	float: left;
+label {
+	font-size: 30px;
 
+}
+
+h2 {
+	float:left;
+}
+
+}
+
+#submit {
+
+	font-size: 15px;
+	border-radius: 5px;
 }
 
 p {
 	width: 150px;
 	height: 40px;
 	background-color: yellow;
-	margin: 0 auto;
+	margin: 10px;
 	margin-bottom: 10px;
 	vertical-align: center;
 	font-size: 30px;
+	border: 1px dotted black;
 }
 
+.wrapper {
+	display: inline-block;
+}
 
-
-/*.cardsClick {
-	width: 97px;
-	height: 97px;
-	border: 1px solid black;
+.scoreBoard {
+	display: inline-block;
+	width: 15vw;
+	height: 100vh;
 	float: left;
-	margin: 3px;
-	background: url("pictures/paul.jpg") center center no-repeat;
-	background-size: cover;
-}*/
+
+}
+
+h3 {
+	width: 150px;
+	height: 40px;
+	border: 1px solid black;
+	font-size: 30px;
+	margin-top: 20px;
+
+}
 
 
 .cards {
@@ -68,7 +89,7 @@ p {
 
 #newGame {
 	margin-bottom: 10px;
-	font-size: 30px;
+	font-size: 25px;
 	border-radius: 5px;
 }
 
@@ -81,12 +102,5 @@ p {
 
 }
 
-/*input {
-	margin-bottom: 15px;
-}*/
 
 
-/*.flip-mainboard {
-    -webkit-perspective: 1000;
-    -o-perspective: 1000;
-    perspective: 1000;*/

@@ -10,8 +10,7 @@ var elapsedTime = 0;
 var timeRunning = 0;
 var TIMER = null;
 var score = [];
-
-
+var player = 1;
 
 function timer(){
 	if (timeRunning === 0) {
@@ -20,7 +19,7 @@ function timer(){
 		console.log("Timer started");
 		document.getElementById("startRound").innerHTML = "Running";
 	} else {
-		timeRunning === 0;
+		timeRunning = 0;
 		document.getElementById("startRound").innerHTML = "Start Round";
 	}
 }
@@ -30,6 +29,7 @@ function resetTimer(){
 	timeRunning = 0;
 	document.getElementById("startRound").innerHTML = "Start Round";
 	document.getElementById("timeDisplay").innerHTML = "00:00:0";
+	// alert("Player " + player " is up!");
 }
 
 function startTimer(){
@@ -120,8 +120,8 @@ function checkMatch(){
 	attempts++
 	console.log(attempts + " total attmepts made");
 
-	if (matches === 2) {
-		timeRunning = 1;
+	if (matches === 1) {
+		clearInterval(TIMER)
 		finishRound();
 	}
 
@@ -130,11 +130,15 @@ function checkMatch(){
 
 function finishRound(){
 
-	alert("Nice work, you're done!");
-	score.push(elapsedTime - (attempts *) 
-
-
-
+	for (i = 0; player <= 2; i++) {
+	score.push(1000 - (elapsedTime/10) - (attempts * 5));
+	alert("Nice work, your score is " + score[i] + "!");
+	console.log(score[i]);
+	document.getElementById("box1").innerHTML = score[i];
+	player++
+	console.log(player);
+	}
+	newGame();
 }
 
 
@@ -143,8 +147,6 @@ $("#newGame").on("click", newGame)
 $(".mainBoard").on('click', ".cards img", showPicture)
 
 $("#startRound").on("click", timer)
-
-
 
 
 
@@ -164,26 +166,6 @@ $("#startRound").on("click", timer)
 
 
 
-
-
-// function showPicture(){
-
-
-
-// //show a picture
-// // 	click ++;
-// // 	if (click === 2) {
-// // 		checkMatch();
-// // 	} else{
-
-// // 	}
-// }
-
-
-
-// function addTestPicture(){
-// 	// image.src = peoplePictures[0];
-// 	image.innerHTML = '<img src="./pictures/paul.jpg" />';
 
 
 // }
