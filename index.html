@@ -5,22 +5,26 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div class="aboveBoard">
-		<h1>Get to Know WDI-18</h1>
-		<button type="button" id="newGame">New Game</button>
-		<br>
-	</div>
+	<h1>Get to Know WDI-18</h1>
 	<div class="wrapper">
-		<button class="wrapper" type="button" id="startRound">Start Round</button>
+		<button type="button" id="newGame">New Game</button>
+		<button class="wrapper" type="button" id="startRound">Start Clock</button>
 		<p class="wrapper" id="timeDisplay"></p>
 	</div>
 	
 	<div class="scoreBoard">
-		<h2 class="scores">Player 1 Score</h2>
+		<h2 class="score1">Player 1 Score</h2>
 		<h2 id="box1"></h2>
-		<h2 class="scores">Player 2 Score</h2>
+		<h2 class="score2">Player 2 Score</h2>
 		<h2 id="box2"></h2>
 	</div>
+
+	<div class="modal">
+        <div class="content">
+            <div class="winner"><h1></h1></div>
+            <div class="close"><h4>close window</h4></div>
+        </div>
+    </div>
 
 		<div class="mainBoard">
 		    <div class="cards"></div>

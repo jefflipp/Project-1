@@ -10,7 +10,7 @@ var elapsedTime = 0;
 var timeRunning = 0;
 var TIMER = null;
 var score = [];
-
+var winner = "";
 
 function timer(){
 	if (timeRunning === 0) {
@@ -20,14 +20,14 @@ function timer(){
 		document.getElementById("startRound").innerHTML = "Running";
 	} else {
 		timeRunning = 0;
-		document.getElementById("startRound").innerHTML = "Start Round";
+		document.getElementById("startRound").innerHTML = "Start Clock";
 	}
 }
 
 function resetTimer(){
 	elapsedTime = 0;
 	timeRunning = 0;
-	document.getElementById("startRound").innerHTML = "Start Round";
+	document.getElementById("startRound").innerHTML = "Start Clock";
 	document.getElementById("timeDisplay").innerHTML = "00:00:0";
 	// alert("Player " + player " is up!");
 }
@@ -81,6 +81,7 @@ function newGame(){
 	buildAndAssignPictures();
 	resetTimer();
 
+
 }
 
 function showPicture(){
@@ -132,22 +133,23 @@ function finishRound(){
 
 	if (player === 1) {
 		score.push(1000 - (elapsedTime/10) - (attempts * 5));
-		alert("Great work, your score is " + score[0] + "!");
+		alert("Great work, your score is " + Math.ceil(score[0]) + "!");
 		console.log(score);
-		document.getElementById("box1").innerHTML = score[0];
+		document.getElementById("box1").innerHTML = Math.ceil(score[0]);
 		player++
 		console.log("Player " + player + " is up.");
-		alert("Player 2 is up.  Remember to click on 'Start Round' when you are ready for the challenge!");
+		alert("Player 2 is up.  Remember to click on 'Start Clock' when you are ready for the challenge!");
 		matches = 0;
 		attempts = 0;
 		newGame();
 	} else {
 		score.push(1000 - (elapsedTime/10) - (attempts * 5));
-		alert("Great work, your score is " + score[1] + "!");
+		alert("Great work, your score is " + Math.ceil(score[1]) + "!");
 		console.log(score[1]);
-		document.getElementById("box2").innerHTML = score[1];
+		document.getElementById("box2").innerHTML = Math.ceil(score[1]);
 
 		getWinner();
+		player = 1;
 	}
 
 
@@ -159,14 +161,21 @@ function getWinner(){
 		console.log(score[1]);
 
 		if (score[0] > score[1]) {
-			alert("Player 1 - YOU ROCK...Player 2 - not so much");
+			winner = "Player 1";
+			$('.modal').fadeIn(500);
+			$('.winner h1').html( winner + " takes it, baby!");
 		} else if (score[1] > score[0]) {
-			alert("Player 2 - YOU ROCK...Player 1 - not so much");
-
+			winner = "Player 2";
+			$('.modal').fadeIn(500);
+			$('.winner h1').html( winner + " takes it, baby!");
 		} else {
-			alert("That's weird - it's a tie");
+			winner = "It's a tie - that's boring";
+			$('.modal').fadeIn(500);
+			$('.winner h1').html( winner );
 
 		}
+
+		newGame();
 
 }
 
@@ -180,103 +189,15 @@ $("#startRound").on("click", timer)
 
 
 
+$('.close').on('click', function(){
+        $('.modal').fadeOut(500);
+        window.setTimeout(function () {
+        newGame();
+        }, 500);
+       	document.getElementById("box1").innerHTML = "";
+		document.getElementById("box2").innerHTML = "";
+		matches = 0;
+    });
 
 
-
-
-// // show two pictures attched to the two clicks
-// // see if the two cards clicked on are equal to one another
-// // if match, keep the two pictures there; if not flip back over to GA; then allow two more clicks before checkMatch again
-// // call checkFInishBoard
-
-// }
-
-
-
-
-
-
-
-
-// }
-
-// $(".cards").on("click", function(){
-
-// 	$(this).addClass("cardsClick");
-
-// 	$(this).removeClass('cards');
-
-// });
-
-
-// function newGame(){
-
-// // clear previous scores
-// // clear names
-// // set all cards so GA logos are visible
-// // set clock back to 0:00
-// // ask for players' names
-// // alert("Press the START button when you're ready to be tested!");
-// }
-	
-
-// function startRound(){}
-
-// // refresh board, assign pictures to .cards[i] (var randomizer = peoplePictures - need to radomize them assign to a specific card)
-// // each picture needs to be assigned to exactly two cards
-// 		//var randomPicture = peoplePictures[Math.floor(Math.random()];
-//         //document.getElementById("display").innerHTML = randomPicture;
-// // Process:
-// // 1) Have one static array with 18 pics x 2 pictures
-// // 2) Create another array by randomizing those 36 pics into a new array (var randomPictures)
-// // 3) randomPictures array assigned to 36 cards
-// //start clock
-
-
-// function checkFinishBoard(player){
-
-// // check if all matches are made
-// // if yes
-// // 1) stop clock; 2) apply the score in the player box;
-// // if player 1 finished, prompt player to play
-// // if player 2 finished, call checkWinner
-
-// }
-
-// function checkWinner(){
-
-// // compare scores to determine a winner
-// // alert winner (do some cool animation in V2)
-// // }
-
-// // for(var i = 0; i < cards.length; i++) { //want to go through all of the cards in order to do something to them
-// //     cards[i].addEventListener('click', showPicture);//now go through each box, listening for a click, then run the getPiece fx
-// //     console.log(cards[i]);//display in console to make sure it's working
-
-
-// // document.querySelector('#newGame').addEventListener('click', checkMatch);
-// }
-
-// //Simple array example
-// //<!DOCTYPE html>
-// // <html>
-// // <body>
-
-// // <p id="demo"></p>
-
-// // <script>
-// // var cars = ["Saab", "Volvo", "BMW"];
-// // document.getElementById("demo").innerHTML = cars[0] + ", " + cars[1];
-// // </script>
-
-// // </body>
-// // </html>
-
-// //pushing photos into an array
-// // var numberOfImages = 50; // or whatever
-// // var im, pictures = new Array();
-// // for (var i = 0; i < numberOfImages ; i++) {
-// //     im = "images/" + i + ".jpg";
-// //     pictures.push(im);
-// // }
 
