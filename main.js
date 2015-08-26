@@ -136,8 +136,8 @@ function finishRound(){
 		console.log(score);
 		document.getElementById("box1").innerHTML = score[0];
 		player++
-		console.log("Player " + player + " is up");
-		alert("Player 2 is up, are you ready?");
+		console.log("Player " + player + " is up.");
+		alert("Player 2 is up.  Remember to click on 'Start Round' when you are ready for the challenge!");
 		matches = 0;
 		attempts = 0;
 		newGame();
@@ -147,10 +147,29 @@ function finishRound(){
 		console.log(score[1]);
 		document.getElementById("box2").innerHTML = score[1];
 
+		getWinner();
 	}
 
 
 }
+
+function getWinner(){
+		console.log("running winner logic");
+		console.log(score[0]);
+		console.log(score[1]);
+
+		if (score[0] > score[1]) {
+			alert("Player 1 - YOU ROCK...Player 2 - not so much");
+		} else if (score[1] > score[0]) {
+			alert("Player 2 - YOU ROCK...Player 1 - not so much");
+
+		} else {
+			alert("That's weird - it's a tie");
+
+		}
+
+}
+
 
 
 $("#newGame").on("click", newGame)
