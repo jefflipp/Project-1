@@ -51,6 +51,7 @@ p {
 	width: 15vw;
 	height: 100vh;
 	float: left;
+	/*overflow: hidden*/
 
 }
 

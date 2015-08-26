@@ -10,7 +10,7 @@ var elapsedTime = 0;
 var timeRunning = 0;
 var TIMER = null;
 var score = [];
-var player = 1;
+
 
 function timer(){
 	if (timeRunning === 0) {
@@ -36,7 +36,7 @@ function startTimer(){
 	if (timeRunning = 1) {
 	TIMER = setInterval(function(){
 		elapsedTime ++;
-		//console.log(elapsedTime);
+		// console.log(elapsedTime);
 		// console.log( document.getElementById("timeDisplay") );
 		var minutes = Math.floor(elapsedTime/600);
 		var seconds = Math.floor((elapsedTime-(minutes*600))/10);
@@ -58,6 +58,7 @@ function startTimer(){
 
 
 function buildAndAssignPictures (){
+	tempArray = peoplePictures.slice();
 	while (tempArray.length) {
 		var y = tempArray.splice( Math.random()*peoplePictures.length, 1 );
 
@@ -83,7 +84,7 @@ function newGame(){
 }
 
 function showPicture(){
-	console.log("hit");
+	console.log("hit");//not firing on second time around
 	this.classList.remove("hidden");
 	check.push(this);
 	console.log(this);
@@ -127,18 +128,28 @@ function checkMatch(){
 
 }
 
-
 function finishRound(){
 
-	for (i = 0; player <= 2; i++) {
-	score.push(1000 - (elapsedTime/10) - (attempts * 5));
-	alert("Nice work, your score is " + score[i] + "!");
-	console.log(score[i]);
-	document.getElementById("box1").innerHTML = score[i];
-	player++
-	console.log(player);
+	if (player === 1) {
+		score.push(1000 - (elapsedTime/10) - (attempts * 5));
+		alert("Great work, your score is " + score[0] + "!");
+		console.log(score);
+		document.getElementById("box1").innerHTML = score[0];
+		player++
+		console.log("Player " + player + " is up");
+		alert("Player 2 is up, are you ready?");
+		matches = 0;
+		attempts = 0;
+		newGame();
+	} else {
+		score.push(1000 - (elapsedTime/10) - (attempts * 5));
+		alert("Great work, your score is " + score[1] + "!");
+		console.log(score[1]);
+		document.getElementById("box2").innerHTML = score[1];
+
 	}
-	newGame();
+
+
 }
 
 
