@@ -93,7 +93,7 @@ function showPicture(){
 	clicks++;
 	console.log(clicks + " clicks");
 	if (clicks === 2) {
-		setTimeout(function(){checkMatch()},500)
+		setTimeout(function(){checkMatch()},300)
 		
 	} else {
 
@@ -106,6 +106,7 @@ function checkMatch(){
 	console.log("I'm checking a match");
 	if (check[0].src !== check[1].src){
 		console.log("there is NO match");
+		//all images.add()
 		check[0].classList.add("hidden");
 		check[1].classList.add("hidden");
 		check = [];
@@ -122,7 +123,7 @@ function checkMatch(){
 	attempts++
 	console.log(attempts + " total attmepts made");
 
-	if (matches === 1) {
+	if (matches === 18) {
 		clearInterval(TIMER)
 		finishRound();
 	}
@@ -163,11 +164,11 @@ function getWinner(){
 		if (score[0] > score[1]) {
 			winner = "Player 1";
 			$('.modal').fadeIn(500);
-			$('.winner h1').html( winner + " takes it, baby!");
+			$('.winner h1').html( winner + " takes it, baby! You crushed Player 2 by " + Math.ceil(score[0] - score[1]) + " points");
 		} else if (score[1] > score[0]) {
 			winner = "Player 2";
 			$('.modal').fadeIn(500);
-			$('.winner h1').html( winner + " takes it, baby!");
+			$('.winner h1').html( winner + " takes it, baby! You crushed Player 1 by " + Math.ceil(score[1] - score[0]) + " points");
 		} else {
 			winner = "It's a tie - that's boring";
 			$('.modal').fadeIn(500);
@@ -192,7 +193,7 @@ $("#startRound").on("click", timer)
 $('.close').on('click', function(){
         $('.modal').fadeOut(500);
         window.setTimeout(function () {
-        newGame();
+        	newGame();
         }, 500);
        	document.getElementById("box1").innerHTML = "";
 		document.getElementById("box2").innerHTML = "";

@@ -2,23 +2,26 @@
     display: none;
     z-index: 9999;
     position: fixed;
-    top: 0;
-    left: 0;    
-    background: rgba(0,0,0, .8);
+    top: 10;
+    left: 10;    
+    background: rgba(0,0,0, .82);
     width: 100%;
     height: 100%;
 }
 
 .winner {
-	font-size: 50px;
+	font-size: 40px;
 	color: white;
 
 }
 
 .close {
-	font-size: 25px;
-	color: white;
-
+	font-size: 40px;
+	color: #D3D3D3;
+	outline-style: solid;
+	border: 1px solid white;
+	width: 270px;
+	margin: 0 auto;
 }
 
 body {
@@ -36,9 +39,6 @@ body {
     margin: 0 auto;
 
 }
-
-h1 {
-	font-family: tahoma;
 
 }
 
