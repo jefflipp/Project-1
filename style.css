@@ -30,26 +30,17 @@ body {
 
 .aboveBoard {
 	margin: 0 auto;
-
 }
 
 .mainboard {
 	width: 650px;
     height: 650px;
     margin: 0 auto;
-
-}
-
 }
 
 h2 {
 	font-family: courier;
-
 }
-
-/*h2 {
-	background-color: red;
-}*/
 
 h2#box1, h2#box2 {
 	background-color: black;
@@ -139,7 +130,6 @@ h3 {
 	border: 1px solid black;
 	font-size: 30px;
 	margin-top: 20px;
-
 }
 
 
