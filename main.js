@@ -110,20 +110,27 @@ function startTimer(){
 
 function showPicture(){
 
-	console.log("hit");
-	this.classList.remove("hidden");
-	check.push(this);
-	console.log(this);
-	console.log(check);
-	clicks++;
-	console.log(clicks + " clicks");
-	if (clicks === 2) {
-		setTimeout(function(){checkMatch()},300)
+	if (clicks < 2) {	
+		console.log("hit");
 		
-	} else {
-
+		if ( check.length < 2 ) {
+			this.classList.remove("hidden");
+			console.log( "it got pushed")
+			check.push(this);
+	    } else {
+	    	console.log("haha it didn't")
+	    }
+		console.log(this);
+		console.log(check);
+		clicks++;
+		console.log(clicks + " clicks");
+		
+		if (clicks === 2) {
+			setTimeout(function(){checkMatch()},400)
+			clicks = 0;
+			
+		}
 	}
-
 }
 
 
@@ -206,15 +213,15 @@ function getWinner(){
 
 		if (score[0] > score[1]) {
 			winner = "Player 1";
-			$('.modal').fadeIn(500);
+			$('.modal').fadeIn(1500);
 			$('.winner h1').html( winner + " takes it, baby! You crushed Player 2 by " + Math.ceil(score[0] - score[1]) + " points");
 		} else if (score[1] > score[0]) {
 			winner = "Player 2";
-			$('.modal').fadeIn(500);
+			$('.modal').fadeIn(1500);
 			$('.winner h1').html( winner + " takes it, baby! You crushed Player 1 by " + Math.ceil(score[1] - score[0]) + " points");
 		} else {
 			winner = "It's a tie - that's boring";
-			$('.modal').fadeIn(500);
+			$('.modal').fadeIn(1500);
 			$('.winner h1').html( winner );
 
 		}
@@ -233,7 +240,7 @@ $("#startRound").on("click", timer)
 //Allows a user to close the winner message on screen to proceed to the main board for another game to begin.
 
 $('.close').on('click', function(){
-        $('.modal').fadeOut(500);
+        $('.modal').fadeOut(1000);
         window.setTimeout(function () {
         	newGame();
         }, 500);

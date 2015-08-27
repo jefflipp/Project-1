@@ -94,34 +94,47 @@ h2#box1, h2#box2 {
 	/*overflow: hidden*/
 }
 
-.score1, .score2, #box1, #box2 {
+.score1, .score2, .scorewrapper, .scorewrapper2 {
 	position: absolute;
 
 }	
 
 .score1 {
 	top: 0;
+	left: 25px;
 }
 
 .score2 {
 	top: 175px;
+	left: 25px;
+}
+
+.scorewrapper {
+	top: 85px;
+	left: 35px;
+	width: 100px;
+	height: 60px;
+	border: 1px solid black;
+	background-color: black;
+	color: white;
+}
+
+.scorewrapper2 {
+	top: 260px;
+	left: 35px;
+	width: 100px;
+	height: 60px;
+	border: 1px solid black;
+	background-color: black;
+	color: white;
 }
 
 #box1 {
-	top: 75px;
-	left: 15px;
-	width: 100px;
-	height: 60px;
-	border: 1px solid black;
+	margin-top: 17px;
 }
 
 #box2 {
-	top: 250px;
-	left: 15px;
-	width: 100px;
-	height: 60px;
-	border: 1px solid black;
-
+	margin-top: 17px;
 }
 
 h3 {
