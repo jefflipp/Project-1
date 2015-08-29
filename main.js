@@ -13,7 +13,7 @@ var cards = document.querySelectorAll(".cards"); //grab all of the card
 	winner = "";
 
 
-//This function gets the board prepared for a new game by calling 3 functions distinct functions.
+//This function gets the board prepared for a new game by calling 3 distinct functions.
 
 function newGame(){
 
@@ -32,9 +32,9 @@ function reset(){
 }
 
 
-//This function is really cool.  It creates a temporary array to duplicate our static array holding all 36 pictures.
-//Then, we're randomly chooeing an indivisula picture from the temp array and doing two things 1) assigning it to one of the
-//36 cards and deleting it fmor the temp array, so we deplete the tempArray at the end of the function.
+//This function creates a temporary array to duplicate our static array holding all 36 pictures.
+//Then, we're randomly choosing an individual picture from the temp array and doing two things 1) assigning it to one of the
+//36 cards and deleting it from the temp array, so we deplete the tempArray at the end of the function.
 //We are adding the pictures to a hidden class so we can manipulate viewing via CSS.
 
 function buildAndAssignPictures (){
@@ -47,7 +47,6 @@ function buildAndAssignPictures (){
 
 		cards[ peoplePictures.length - (tempArray.length + 1) ].innerHTML += "<img class='hidden' src='" + y + "' />";
 	}
-
 }
 
 
@@ -85,21 +84,21 @@ function timer(){
 function startTimer(){
 
 	if (timeRunning = 1) {
-	TIMER = setInterval(function(){
-		elapsedTime ++;
-		var minutes = Math.floor(elapsedTime/600);
-		var seconds = Math.floor((elapsedTime-(minutes*600))/10);
-		var tenthsSeconds = elapsedTime % 10;
+		TIMER = setInterval(function(){
+			elapsedTime ++;
+			var minutes = Math.floor(elapsedTime/600);
+			var seconds = Math.floor((elapsedTime-(minutes*600))/10);
+			var tenthsSeconds = elapsedTime % 10;
 
-		if (minutes < 10) {
-			minutes = "0" + minutes;
-		}
-		if (seconds < 10) {
-			seconds = "0" + seconds;
-		}
-		document.getElementById("timeDisplay").innerHTML = minutes + ":" + seconds + ":" + tenthsSeconds;
+			if (minutes < 10) {
+				minutes = "0" + minutes;
+			}
+			if (seconds < 10) {
+				seconds = "0" + seconds;
+			}
+			document.getElementById("timeDisplay").innerHTML = minutes + ":" + seconds + ":" + tenthsSeconds;
 
-	}, 100);
+		}, 100);
 	}
 }
 
@@ -113,12 +112,12 @@ function showPicture(){
 	if (clicks < 2) {	
 		console.log("hit");
 		
-		if ( check.length < 2 ) {
+		if (check.length < 2) {
 			this.classList.remove("hidden");
 			console.log( "it got pushed")
 			check.push(this);
 	    } else {
-	    	console.log("haha it didn't")
+
 	    }
 		console.log(this);
 		console.log(check);
@@ -128,7 +127,6 @@ function showPicture(){
 		if (clicks === 2) {
 			setTimeout(function(){checkMatch()},400)
 			clicks = 0;
-			
 		}
 	}
 }
@@ -164,7 +162,6 @@ function checkMatch(){
 
 		finishRound();
 	}
-
 }
 
 
@@ -197,8 +194,6 @@ function finishRound(){
 		player = 1;
 
 	}
-
-
 }
 
 
