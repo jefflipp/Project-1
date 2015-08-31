@@ -121,6 +121,7 @@ function showPicture(){
 	    }
 		console.log(this);
 		console.log(check);
+		console.log(document.getElementById(this));
 		clicks++;
 		console.log(clicks + " clicks");
 		
@@ -141,12 +142,12 @@ function checkMatch(){
 
 	console.log("I'm checking a match");
 
-	if (check[0].src !== check[1].src){
-		console.log("there is NO match");
-		check[0].classList.add("hidden");
-		check[1].classList.add("hidden");
-		check = [];
-		clicks = 0; 
+	if (check[0].src !== check[1].src || check[0].parentElement.id === check[1].parentElement.id){
+			console.log("there is NO match");
+			check[0].classList.add("hidden");
+			check[1].classList.add("hidden");
+			check = [];
+			clicks = 0; 
 	} else {
 		console.log("YES, there is a match");
 		check = [];
