@@ -1,4 +1,4 @@
-# Project #1 - Jeff Lipp
+# [Project #1 - Jeff Lipp](http://jefflipp.github.io/Project-1/)
 
 ## GA Matching
 
